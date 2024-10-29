@@ -394,6 +394,4 @@ export function test(colorArray){
     let final = findLargestSquare(validSquareList)
     paintArea(canvas, final.topLeftAngle, final.bottomRightAngle, "red")
 
-    console.log(validSquareList)
-
 }

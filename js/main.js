@@ -1,10 +1,14 @@
 import { calculateFactorial } from './factorial.js';
 import { createMultiplicationTable } from './multiplication.js';
 import { createBlackAndWhiteGrid, test } from './blackAndWhiteGrid/blackAndWhiteGrid.js';
+import { getLargestSquare } from './blackAndWhiteGrid/blackAndWhiteGridV2.js';
 import { BlackAndWhiteCanvas } from './blackAndWhiteGrid/Canvas.js';
 
-// Tableau à 2 dimentions 
+// Tableau à 2 dimentions pour la grille noire et blanche V1
 let blackAndWhiteArray
+
+// Instance de ma class Canvas pour la grille noire et blanche V2
+let canvasV2 = null
 
 // Ajouter des écouteurs d'événements aux boutons
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,12 +36,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const gridContainer = document.getElementById('black-and-white-grid-container')
 
-        
+
         blackAndWhiteArray = createBlackAndWhiteGrid(firstValue, secondValue, gridContainer)
 
     })
 
     document.getElementById('btn-essai').addEventListener('click', () => {
         test(blackAndWhiteArray)
+    })
+
+    document.getElementById('btn-create-black-and-white-grid-v2').addEventListener('click', () => {
+
+        const firstValue = parseInt(document.getElementById('black-and-white-grid-size-first-v2').value, 10);
+        const secondValue = parseInt(document.getElementById('black-and-white-grid-size-second-v2').value, 10);
+
+        const gridContainer = document.getElementById('black-and-white-grid-container-v2')
+        
+        canvasV2 = new BlackAndWhiteCanvas(firstValue, secondValue, gridContainer)
+
+    })
+
+    document.getElementById('btn-essai-v2').addEventListener('click', () => {
+        getLargestSquare(canvasV2)
     })
 });
