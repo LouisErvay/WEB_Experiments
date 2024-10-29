@@ -25,16 +25,16 @@ export function getLargestSquare(canvas){
             validSquareList.push(square)
         }
 
-        x1 = x2 = pixel.x - 1
-        y1 = y2 = pixel.y
+        x1 = x2 = pixel.x
+        y1 = y2 = pixel.y + 1
         if (!(canvas.isBlackPixelInArea(x1, y1, x2, y2) || x1 < 0)) {
             square = new BottomSquare(x1, y1, x2, y2, canvas)
             square.extendToLargestSquare()
             validSquareList.push(square)
         }
 
-        x1 = x2 = pixel.x
-        y1 = y2 = pixel.y + 1
+        x1 = x2 = pixel.x - 1
+        y1 = y2 = pixel.y
         if (!(canvas.isBlackPixelInArea(x1, y1, x2, y2) || y1 > canvas.getYLenght())) {
             square = new LeftSquare(x1, y1, x2, y2, canvas)
             square.extendToLargestSquare()
