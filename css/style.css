@@ -14,17 +14,4 @@ canvas {
   margin: 0 auto; /* Centre le canvas si souhaité */
 }
 
-body {
-  font-family: Arial, sans-serif;
-}
-
-#fileList {
-  list-style-type: none;
-  padding: 0;
-}
-
-#fileList li {
-  margin-bottom: 5px;
-}
-
 /*# sourceMappingURL=style.css.map */
