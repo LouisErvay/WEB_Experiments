@@ -14,17 +14,16 @@ canvas {
   margin: 0 auto; /* Centre le canvas si souhaité */
 }
 
-body {
-  font-family: Arial, sans-serif;
+details {
+  padding-left: 20px;
 }
 
-#fileList {
-  list-style-type: none;
-  padding: 0;
+#buttons-black-and-white {
+  padding-top: 10px;
 }
 
-#fileList li {
-  margin-bottom: 5px;
+#black-and-white-v2-error {
+  color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

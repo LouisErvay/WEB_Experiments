@@ -12,3 +12,15 @@ canvas {
     display: block; /* Assure qu'il ne soit pas un élément inline */
     margin: 0 auto; /* Centre le canvas si souhaité */
 }
+
+details{
+    padding-left: 20px;
+}
+
+#buttons-black-and-white{
+    padding-top: 10px;
+}
+
+#black-and-white-v2-error{
+    color: red;
+}

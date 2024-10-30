@@ -1,8 +1,11 @@
+import { BlackPixel } from "./BlackPixel.js";
+
 export class BlackAndWhiteCanvas{
-    constructor(rows, cols, htmlContainer){
+    constructor(rows, cols, htmlContainer, ratio){
         this.rows = rows - 1
         this.cols = cols - 1
         this.htmlContainer = htmlContainer
+        self.ratio = ratio
 
         this.canvas = document.createElement('canvas');
         this.canvas.id = "black-and-white-canvas"
@@ -15,9 +18,9 @@ export class BlackAndWhiteCanvas{
 
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
-                const isBlack = Math.random() > 0.999;
+                const isBlack = Math.random() > ratio;
                 const color = isBlack ? 'black' : 'white'
-                isBlack ? this.blackPixels.push({x: col, y: row}) : null
+                isBlack ? this.blackPixels.push(new BlackPixel(col, row, this)) : null
                 this.context.fillStyle = isBlack ? 'black' : 'white';
                 this.context.fillRect(col * 3, row * 3, 3, 3); // Dessine un carré de 3x3 pixels
 

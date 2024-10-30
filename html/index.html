@@ -50,10 +50,23 @@
         <details>
             <summary>Grille noire et blanche V2</summary>
 
-            <input type="number" id="black-and-white-grid-size-first-v2">
-            <input type="number" id="black-and-white-grid-size-second-v2">
-            <button id="btn-create-black-and-white-grid-v2">Créer la grille</button>
-            <button id="btn-essai-v2">test</button>
+            <p class="intro">Inspiré de l'exercice BSQ de l'école 42, le but de cet exercice est de créer un algorithme capable de retrouver le plus grand carré blanc dans une grille de pixels blanc et noir générée aléatoirement.</p>
+            <p class="intro">Pour ce faire, vous pouvez jouer avec la taille de la grille (longueur / largueur en pixels), et le % de chance d'avoir un carré blanc (100% = blanc)</p>
+
+            <div id="settings-black-and-white">
+                <input type="number" id="black-and-white-grid-size-first-v2", value="200">
+                <input type="number" id="black-and-white-grid-size-second-v2", value="200">
+                <input type="range" id="black-and-white-grid-slider" min="0" max="100" value="99.9" step="1" style="width: 100px;">
+                <input type="number" id="black-and-white-grid-slider-input" min="0" max="100" value="99.9" step="1">
+            </div>
+
+            <div id="buttons-black-and-white">
+                <button id="btn-create-black-and-white-grid-v2">Créer la grille</button>
+                <button id="btn-essai-v2">Trouver le plus grand carré blanc</button>
+                <button id="btn-del-canvas-v2">Tout supprimer</button>
+            </div>
+
+            <p id="black-and-white-v2-error"></p>
 
             <div id="black-and-white-grid-container-v2" class="grid"></div>
         </details>
