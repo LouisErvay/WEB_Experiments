@@ -1,4 +1,4 @@
-class Square{
+export class Square{
     constructor(x1, y1, x2, y2, canvas){
         // Top Left
         this.x1 = x1

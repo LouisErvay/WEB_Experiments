@@ -1,14 +1,13 @@
 import { calculateFactorial } from './factorial.js';
 import { createMultiplicationTable } from './multiplication.js';
-import { createBlackAndWhiteGrid, test } from './blackAndWhiteGrid/blackAndWhiteGridV1.js';
-import { getLargestSquare } from './blackAndWhiteGrid/blackAndWhiteGridV2.js';
+import { getLargestSquare } from './blackAndWhiteGrid/V1/blackAndWhiteGridV1.js';
 import { BlackAndWhiteCanvas } from './blackAndWhiteGrid/Canvas.js';
 
 // Tableau à 2 dimentions pour la grille noire et blanche V1
 let blackAndWhiteArray
 
 // Instance de ma class Canvas pour la grille noire et blanche V2
-let canvasV2
+let bwCanvasV1
 
 // Ajouter des écouteurs d'événements aux boutons
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,26 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ------------------------- GRILLE V1 ----------------
-    document.getElementById('btn-create-black-and-white-grid').addEventListener('click', () => {
-
-        const firstValue = parseInt(document.getElementById('black-and-white-grid-size-first').value, 10);
-        const secondValue = parseInt(document.getElementById('black-and-white-grid-size-second').value, 10);
-
-        const gridContainer = document.getElementById('black-and-white-grid-container')
-
-
-        blackAndWhiteArray = createBlackAndWhiteGrid(firstValue, secondValue, gridContainer)
-
-    })
-
-    document.getElementById('btn-essai').addEventListener('click', () => {
-        test(blackAndWhiteArray)
-    })
-
-
-    // ------------------------- GRILLE V2 ----------------
-    const bwSlider = document.getElementById('black-and-white-grid-slider')
-    const bwSliderInput = document.getElementById('black-and-white-grid-slider-input')
+    const bwSlider = document.getElementById('bw-ratio-slider-v1')
+    const bwSliderInput = document.getElementById('bw-ratio-slider-input-v1')
 
     bwSlider.addEventListener('input', () => {
         bwSliderInput.value = bwSlider.value;
@@ -63,31 +44,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    document.getElementById('bw-btn-create-grid-v1').addEventListener('click', () => {
 
-    document.getElementById('btn-create-black-and-white-grid-v2').addEventListener('click', () => {
+        const firstValue = parseInt(document.getElementById('bw-grid-rows-v1').value, 10);
+        const secondValue = parseInt(document.getElementById('bw-grid-cols-v1').value, 10);
 
-        const firstValue = parseInt(document.getElementById('black-and-white-grid-size-first-v2').value, 10);
-        const secondValue = parseInt(document.getElementById('black-and-white-grid-size-second-v2').value, 10);
-
-        const gridContainer = document.getElementById('black-and-white-grid-container-v2')
-        const pError = document.getElementById('black-and-white-v2-error')
+        const gridContainer = document.getElementById('bw-grid-container-v1')
+        const pError = document.getElementById('bw-error-v1')
         
-        canvasV2 = new BlackAndWhiteCanvas(firstValue, secondValue, gridContainer, Math.min(bwSliderInput.value / 100, 0.99999))
+        bwCanvasV1 = new BlackAndWhiteCanvas(firstValue, secondValue, gridContainer, Math.min(bwSliderInput.value / 100, 0.99999))
 
-        let x = canvasV2.getBlackPixels().length
+        let x = bwCanvasV1.getBlackPixels().length
         if (x > 1000){
             pError.innerHTML = "ATTENTION : Votre tableau comporte plus de " + x + " pixels noirs. À ce nombre, vous risquez des ralentissements voir un crash de la page web.<br> Je vous conseille de revoir vos paramètres pour réduire ce nombre."
+        } else {
+            pError.innerHTML = ""
         }
 
     })
 
-    document.getElementById('btn-essai-v2').addEventListener('click', () => {
-        getLargestSquare(canvasV2)
+    document.getElementById('bw-btn-find-square-v1').addEventListener('click', () => {
+        getLargestSquare(bwCanvasV1)
     })
 
-    document.getElementById('btn-del-canvas-v2').addEventListener('click', () => {
-        const gridContainer = document.getElementById('black-and-white-grid-container-v2')
-        const pError = document.getElementById('black-and-white-v2-error')
+    document.getElementById('bw-btn-clear-canvas-v1').addEventListener('click', () => {
+        const gridContainer = document.getElementById('bw-grid-container-v1')
+        const pError = document.getElementById('bw-error-v1')
 
         gridContainer.innerHTML = ''
         pError.innerHTML = ''
