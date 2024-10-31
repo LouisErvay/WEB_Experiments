@@ -1,4 +1,4 @@
-import { BlackPixel } from "./BlackPixel.js";
+import { BlackPixel } from "./V1/BlackPixel.js";
 
 export class BlackAndWhiteCanvas{
     constructor(rows, cols, htmlContainer, ratio){
