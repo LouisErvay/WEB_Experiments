@@ -1,6 +1,6 @@
 import { Square } from "./Square.js"
 
-export function getLargestSquare(canvas){
+export function getLargestSquareV1(canvas){
     const blackPixels = canvas.getBlackPixels()
 
     let validSquareList = []
