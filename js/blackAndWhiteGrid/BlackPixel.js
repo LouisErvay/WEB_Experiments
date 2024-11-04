@@ -34,4 +34,6 @@ export class BlackPixelV2 extends BlackPixel{
     constructor(x, y, canvas){
         super(x, y, canvas)
     }
+
+    
 }
